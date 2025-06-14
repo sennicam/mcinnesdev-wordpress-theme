@@ -70,9 +70,9 @@ function mcinnesdev_theme_scripts() {
 
     // Enqueue your custom main stylesheet
     wp_enqueue_style( 'mcinnesdev-theme-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), MCINNESDEV_THEME_VERSION );
-
-    // Enqueue your custom mobile stylesheet
-    wp_enqueue_style( 'mcinnesdev-theme-mobile-style', get_template_directory_uri() . '/assets/css/mobile.css', array(), MCINNESDEV_THEME_VERSION );
+  
+    // Enqueue your custom mobile stylesheet (loads after main)
+    wp_enqueue_style( 'mcinnesdev-theme-mobile-style', get_template_directory_uri() . '/assets/css/mobile.css', array('mcinnesdev-theme-main-style'), MCINNESDEV_THEME_VERSION, 'screen and (max-width: 768px)' );
 
     // Enqueue your custom main JavaScript
     // Set true for the last argument to load in the footer
@@ -88,6 +88,80 @@ function mcinnesdev_theme_print_styles() {
     wp_enqueue_style( 'mcinnesdev-theme-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), MCINNESDEV_THEME_VERSION, 'print' );
 }
 add_action( 'wp_enqueue_scripts', 'mcinnesdev_theme_print_styles' );
+
+/**
+ * Displays the post thumbnail (featured image).
+ */
+if ( ! function_exists( 'mcinnesdev_theme_post_thumbnail' ) ) :
+    function mcinnesdev_theme_post_thumbnail() {
+        if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+            return;
+        }
+
+        if ( is_singular() ) :
+            ?>
+            <div class="post-thumbnail">
+                <?php the_post_thumbnail( 'full' ); // Display full size on single views ?>
+            </div><?php else : ?>
+            <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+                <?php
+                the_post_thumbnail( 'post-thumbnail', array(
+                    'alt' => the_title_attribute( array(
+                        'echo' => false,
+                    ) ),
+                ) );
+                ?>
+            </a>
+            <?php
+        endif; // End is_singular().
+    }
+endif;
+
+/**
+ * Prints HTML with meta information for the current post-date/time.
+ */
+if ( ! function_exists( 'mcinnesdev_theme_posted_on' ) ) :
+    function mcinnesdev_theme_posted_on() {
+        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+        if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+        }
+
+        $posted_on = sprintf(
+            wp_kses(
+                /* translators: %s: post date. */
+                __( 'Posted on %s', 'mcinnesdev-theme' ),
+                array(
+                    'time' => array(
+                        'class'    => true,
+                        'datetime' => true,
+                    ),
+                )
+            ),
+            sprintf(
+                '<a href="%1$s" rel="bookmark">%2$s</a>',
+                esc_url( get_permalink() ),
+                esc_html( get_the_date() )
+            )
+        );
+
+        $byline = sprintf(
+            wp_kses(
+                /* translators: %s: post author. */
+                __( ' by %s', 'mcinnesdev-theme' ), // Added space before 'by'
+                array(
+                    'span' => array(
+                        'class' => true,
+                    ),
+                )
+            ),
+            '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+        );
+
+        echo '<span class="posted-on">' . $posted_on . '</span><span class="byline">' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+    }
+endif;
 
 // Placeholder for Custom Post Types, Taxonomies, etc.
 // function mcinnesdev_theme_custom_features() {

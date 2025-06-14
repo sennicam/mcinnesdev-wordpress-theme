@@ -95,3 +95,85 @@ a:focus {
 .menu-toggle { /* Hide on desktop, show on mobile */
     display: none;
 }
+
+/* Recent Posts Section */
+.recent-posts {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.recent-posts h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.recent-posts .posts-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) ); /* Responsive grid */
+    gap: 2rem; /* Space between grid items */
+}
+
+.post-preview {
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for each preview card */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.post-preview .entry-header {
+    margin-bottom: 1rem;
+}
+
+.post-preview .entry-title {
+    font-size: 1.5rem; /* H3 size for preview titles */
+    margin-bottom: 0.5rem;
+}
+
+.post-preview .entry-title a {
+    color: #f0c808; /* Your yellow/gold for preview titles */
+}
+
+.post-preview .entry-meta {
+    font-size: 0.85rem;
+    color: #a0a0a0; /* Lighter grey for meta info */
+}
+
+.post-preview .entry-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-preview .read-more-link {
+    display: inline-block;
+    background-color: #e07a5f; /* Your orange accent color */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.post-preview .read-more-link:hover {
+    background-color: #f0c808; /* Hover to yellow/gold */
+    text-decoration: none;
+}
+
+/* Post thumbnail in preview */
+.post-preview .post-thumbnail {
+    margin-bottom: 1rem;
+}
+
+.post-preview .post-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
