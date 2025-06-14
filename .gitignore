@@ -10,6 +10,8 @@ thumbs.db
 debug.log
 error_log
 nbproject/
+_notes/
+*/_notes/
 # If using local dev tools, add their specific files
 # For example, for Local by Flywheel:
 # .lando/
