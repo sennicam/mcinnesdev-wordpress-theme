@@ -1,0 +1,19 @@
+/*
+Theme Name: McInnes.Dev Theme
+Theme URI: https://mcInnes.dev/
+Author: Josh McInnes
+Author URI: https://mcInnes.dev/
+Description: A custom WordPress theme for McInnes.Dev, focusing on a professional portfolio, blog, and personal brand. Built with clean code and a dark mode aesthetic.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mcinnesdev-theme
+Tags: custom-background, custom-colors, custom-header, custom-menu, dark-mode, editor-style, featured-images, flexible-header, full-width-template, portfolio, accessibility-ready, blog
+
+This is the main stylesheet for the McInnes.Dev Theme.
+All theme-specific styles will be loaded from assets/css/main.css.
+*/
+
+/* No actual CSS rules here, just the header. */

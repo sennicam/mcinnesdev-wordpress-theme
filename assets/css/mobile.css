@@ -1,0 +1,19 @@
+/*
+Theme Name: McInnes.Dev Theme
+Description: Mobile styles for McInnes.Dev Theme.
+*/
+
+@media (max-width: 768px) {
+    .main-navigation ul {
+        flex-direction: column;
+    }
+    .menu-toggle {
+        display: block;
+        background: transparent;
+        border: 1px solid #f0c808;
+        color: #f0c808;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}

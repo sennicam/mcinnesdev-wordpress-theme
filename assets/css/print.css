@@ -1,0 +1,58 @@
+/*
+Theme Name: McInnes.Dev Theme
+Description: Print-specific styles for McInnes.Dev Theme.
+*/
+
+/* Reset colors for print */
+body {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1a1a1a !important;
+}
+
+a {
+    color: #0000ff !important; /* Standard blue for links in print */
+    text-decoration: underline !important;
+}
+
+/* Hide navigation, footer, sidebars for print */
+.site-header .main-navigation,
+.site-footer,
+.skip-link,
+.menu-toggle {
+    display: none !important;
+}
+
+/* Ensure images print without issue */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* Adjust margins and remove shadows/backgrounds */
+* {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    color-adjust: exact; /* Crucial for background colors to print if desired, though often best to remove for print */
+    -webkit-print-color-adjust: exact;
+}
+
+/* Add URLs next to links for print */
+a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    word-break: break-all;
+}
+
+/* Handle content area for print */
+.site-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}

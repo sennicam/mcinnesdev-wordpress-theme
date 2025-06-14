@@ -1,0 +1,16 @@
+# WordPress specific files/folders that don't belong in Git
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.bak
+*.tmp
+*.swp
+thumbs.db
+debug.log
+error_log
+nbproject/
+# If using local dev tools, add their specific files
+# For example, for Local by Flywheel:
+# .lando/
+# .ddev/
