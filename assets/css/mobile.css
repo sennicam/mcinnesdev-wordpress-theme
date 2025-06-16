@@ -3,6 +3,14 @@ Theme Name: McInnes.Dev Theme
 Description: Mobile styles for McInnes.Dev Theme.
 */
 
+/* Adjust Recent Posts Grid for smaller screens */
+@media (max-width: 992px) { /* Example breakpoint for tablets */
+    .recent-posts .posts-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .main-navigation ul {
         flex-direction: column;
@@ -15,5 +23,35 @@ Description: Mobile styles for McInnes.Dev Theme.
         padding: 0.5rem 1rem;
         cursor: pointer;
         margin: 0 auto;
+    }
+  
+    /* Adjust Recent Posts Grid for mobile phones */
+    .recent-posts .posts-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 1.5rem;
+    }
+
+    .post-preview {
+        padding: 1rem; /* Slightly less padding on mobile */
+    }
+
+    .post-preview .entry-title {
+        font-size: 1.3rem; /* Slightly smaller title on mobile */
+    }
+}
+
+/* Responsive adjustments for the footer layout */
+@media (min-width: 768px) {
+    .site-footer .footer-inner-wrapper {
+        flex-direction: row; /* Arrange site-info and menu side-by-side on wider screens */
+        text-align: left; /* Re-align site-info text to the left */
+    }
+
+    .site-footer .site-info {
+        text-align: left;
+    }
+
+    .site-footer .footer-menu-list {
+        justify-content: flex-end; /* Align menu items to the right */
     }
 }

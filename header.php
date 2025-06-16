@@ -39,10 +39,11 @@
             <?php
         endif;
         $mcinnesdev_theme_description = get_bloginfo( 'description', 'display' );
+      /*
         if ( $mcinnesdev_theme_description || is_customize_preview() ) :
             ?>
             <p class="site-description"><?php echo $mcinnesdev_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-        <?php endif; ?>
+        <?php endif; */?>
     </div><nav id="site-navigation" class="main-navigation">
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'mcinnesdev-theme' ); ?></button>
         <?php
@@ -52,6 +53,8 @@
             'depth'          => 1, // Only show top-level items for simplicity, adjust as needed.
         ) );
         ?>
-    </nav></header><div id="content" class="site-content">
+    </nav>
+  </header>
+  <div id="content" class="site-content">
     <div id="primary" class="content-area">
         <main id="main" class="site-main">

@@ -23,14 +23,22 @@ get_header();
           // This will display the content of the page you set as "Front Page" in Settings > Reading
           the_content();
 
+          // Display recent blog posts AND projects
+          $recent_posts = new WP_Query( array(
+            'posts_per_page' => 3, // Still display 3 items
+            'post_type'      => array( 'post', 'project' ), // <-- IMPORTANT CHANGE: Include 'post' and 'project'
+            'order'          => 'DESC', // Order by date, newest first
+            'orderby'        => 'date',
+          ) );
           // display recent blog posts here
-          $recent_posts = new WP_Query( array( 'posts_per_page' => 3 ) );
+//          $recent_posts = new WP_Query( array( 'posts_per_page' => 3 ) );
           if ( $recent_posts->have_posts() ) {
             echo '<section class="recent-posts"><h2>Recent Insights</h2>';
+            echo '<div class="posts-grid">';
             while ( $recent_posts->have_posts() ) : $recent_posts->the_post();
               get_template_part( 'template-parts/content', 'preview' );
             endwhile;
-            echo '</section>';
+            echo '</div></section>';
             wp_reset_postdata();
           }
         endwhile; // End of the loop.

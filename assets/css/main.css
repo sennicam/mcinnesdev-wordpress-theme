@@ -1,179 +1,365 @@
 /*
 Theme Name: McInnes.Dev Theme
 Description: Your primary styles for McInnes.Dev Theme.
-*/
-
+*/ :root {
+  --mcdev-color-bg-primary: #2c3531;
+  --mcdev-color-heading-primary: #f0c808;
+  --mcdev-color-heading-accent: #e07a5f;
+  --mcdev-color-text: #e0e0e0;
+  --mcdev-color-text-light: #a0a0a0;
+  --mcdev-color-link-hover: #e07a5f;
+}
 /* Basic Reset (optional but good practice) */
 *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
 /* Base Body Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #2c3531; /* Your dark green background */
-    color: #e0e0e0; /* Light grey for main body text */
-    line-height: 1.6;
-    font-size: 1rem; /* Equivalent to 16px */
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--mcdev-color-bg-primary);
+  color: var(--mcdev-color-text); /* Light grey for main body text */
+  line-height: 1.6;
+  font-size: 1rem; /* Equivalent to 16px */
 }
-
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif; /* Using Roboto for headings too, but maybe bolder */
-    color: #f0c808; /* Your yellow/gold for headings */
-    margin-bottom: 0.5em;
-    margin-top: 1em;
-    line-height: 1.2;
+  font-family: 'Roboto', sans-serif; /* Using Roboto for headings too, but maybe bolder */
+  color: var(--mcdev-color-heading-primary);
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+  line-height: 1.2;
 }
-
-h1 { font-size: 2.5rem; } /* 40px */
-h2 { font-size: 2rem; }   /* 32px */
-h3 { font-size: 1.75rem; }/* 28px */
+h1 {
+  font-size: 2.5rem;
+} /* 40px */
+h2 {
+  font-size: 2rem;
+} /* 32px */
+h3 {
+  font-size: 1.75rem;
+} /* 28px */
 /* ... define other heading sizes */
-
 /* Links */
 a {
-    color: #e07a5f; /* Your burnt orange for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--mcdev-color-heading-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover, a:focus {
+  color: var(--mcdev-color-heading-primary); /* Hover state could be your yellow */
+  text-decoration: underline;
 }
 
-a:hover,
-a:focus {
-    color: #f0c808; /* Hover state could be your yellow */
-    text-decoration: underline;
+/* Basic Paragraph Styling */
+p {
+    margin-bottom: 1.5em; /* Adjust this value as needed. 1.5em is often a good default. */
+    line-height: 1.6; /* Ensure comfortable line height for the text itself */
+    /* Add any other default paragraph styles here if you don't have them yet */
+    /* color: var(--mc-color-text-primary); */
+    /* font-family: var(--mc-font-body); */
+}
+
+/* You might also want to ensure lists have some spacing if they don't */
+ul, ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em; /* Default padding for list bullets/numbers */
+}
+
+li {
+    margin-bottom: 0.5em; /* Space between list items */
 }
 
 /* Site Layout (very basic) */
 .site-header {
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker header */
-    padding: 1.5rem 0;
-    text-align: center;
+  background-color: rgba(0, 0, 0, 0.2); /* Slightly darker header */
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid var(--mcdev-color-bg-primary);
 }
-
 .site-title {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
-
 .site-title a {
-    color: inherit; /* Inherit color from heading */
+  color: inherit; /* Inherit color from heading */
 }
-
 .site-info {
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.85rem;
 }
-
 .site-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
-
 /* Navigation (minimal) */
 .main-navigation ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* For horizontal menu */
-    justify-content: center;
+  list-style: none;
+  padding: 0;
+  display: flex; /* For horizontal menu */
+  justify-content: center;
 }
-
 .main-navigation li {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
-
 .main-navigation a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
 }
-
 .menu-toggle { /* Hide on desktop, show on mobile */
-    display: none;
+  display: none;
 }
-
 /* Recent Posts Section */
 .recent-posts {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
 }
-
 .recent-posts h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
-
 .recent-posts .posts-grid {
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) ); /* Responsive grid */
-    gap: 2rem; /* Space between grid items */
+  display: grid;
+  /* This creates 3 columns of equal width.
+       'fr' (fractional unit) ensures they take up equal available space. */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Space between grid items */
+  align-items: stretch; /* Crucial for equal height boxes */
 }
-
 .post-preview {
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for each preview card */
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for each preview card */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* For equal height content within the card */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; /* This needs to stay for the rounded corners effect */
 }
-
 .post-preview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
 .post-preview .entry-header {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-
 .post-preview .entry-title {
-    font-size: 1.5rem; /* H3 size for preview titles */
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem; /* H3 size for preview titles */
+  margin-bottom: 0.5rem;
 }
-
 .post-preview .entry-title a {
-    color: #f0c808; /* Your yellow/gold for preview titles */
+  color: var(--mcdev-color-heading-primary); /* Your yellow/gold for preview titles */
+  position: relative; /* IMPORTANT: This is crucial for positioning the tag */
+  overflow: hidden; /* Ensures the tag doesn't overflow if corners are rounded */
 }
-
+.post-type-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--mcdev-color-heading-accent); /* Your yellow/gold color */
+  color: var(--mcdev-color-bg-primary); /* Dark text on the yellow tag */
+  padding: 0.3em 0.8em;
+  font-size: 0.75rem; /* Smaller font size for the tag */
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom-left-radius: 8px; /* Rounds the inner corner for a subtle effect */
+  z-index: 10; /* Ensures the tag is above other content */
+  /* Optional: A slight diagonal pull for a "folded corner" look */
+  transform: translate(10%, -10%);
+  /* ENSURE VISIBILITY: */
+  opacity: 1; /* Make sure it's fully opaque */
+  visibility: visible; /* Make sure it's visible */
+  transform: none; /* Crucial: Ensure no default transform is hiding it */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smoothness if any effects are ever applied */
+  display: block; /* Ensure it's treated as a block element */
+}
+/* Ensure no hover effect on parent is hiding it */
+.post-preview:hover .post-type-tag {
+  /* If you had any rules here that caused it to show/hide on hover, remove or override them */
+  opacity: 1; /* Explicitly keep it visible on hover as well */
+  transform: none; /* Explicitly keep it in its original position */
+}
 .post-preview .entry-meta {
-    font-size: 0.85rem;
-    color: #a0a0a0; /* Lighter grey for meta info */
+  font-size: 0.85rem;
+  color: var(--mcdev-color-text-light);
 }
-
 .post-preview .entry-summary {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
-
 .post-preview .read-more-link {
-    display: inline-block;
-    background-color: #e07a5f; /* Your orange accent color */
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: var(--mcdev-color-heading-accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
-
 .post-preview .read-more-link:hover {
-    background-color: #f0c808; /* Hover to yellow/gold */
-    text-decoration: none;
+  background-color: var(--mcdev-color-heading-primary);
+  text-decoration: none;
 }
-
 /* Post thumbnail in preview */
 .post-preview .post-thumbnail {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.post-preview .post-thumbnail img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+a.post-preview-tag {
+  background: var(--mcdev-color-heading-primary);
+  color: var(--mcdev-color-bg-primary);
+  border-radius: 10px;
+  padding: 2px 5px;
+}
+/* Technology Archive Grid Layout */
+.technology-archive-grid {
+  display: grid;
+  /* Use auto-fill and minmax for basic responsiveness */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px; /* Space between grid items (previews) */
+  margin-top: 2em; /* Space from the page title/description */
+  margin-bottom: 3em; /* Space before pagination */
+}
+/* Force 3 columns on wider screens */
+@media (min-width: 992px) { /* Adjust this breakpoint if your design needs it */
+  .technology-archive-grid {
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
+  }
+}
+/* Adjust columns for medium screens */
+@media (max-width: 768px) {
+  .technology-archive-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Slightly smaller min-width */
+    gap: 20px;
+  }
+}
+/* Single column for very small screens */
+@media (max-width: 576px) {
+  .technology-archive-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 15px;
+  }
+}
+/* Basic Pagination Styling (Adjust colors and spacing to match your theme's design) */
+.navigation.pagination {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  text-align: center; /* Center the pagination links */
+}
+.nav-links {
+  display: inline-block; /* Helps contain the pagination numbers */
+}
+.page-numbers {
+  display: inline-block;
+  padding: 0.5em 0.8em;
+  margin: 0 0.2em;
+  border: 1px solid var(--mcdev-color-border-primary, #ccc); /* Fallback color if variable not defined */
+  border-radius: var(--mcdev-border-radius, 4px); /* Fallback if variable not defined */
+  text-decoration: none;
+  color: var(--mcdev-color-text-primary, #333); /* Fallback color */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.page-numbers.current, /* Style for the current page number */ .page-numbers:hover {
+  background-color: var(--mcdev-color-link-hover, #0073aa); /* Your hover color */
+  color: var(--mcdev-color-bg-primary, #fff); /* Text color on hover/current */
+  border-color: var(--mcdev-color-link-hover, #0073aa);
+}
+.screen-reader-text {
+  /* Hide screen reader text visually, but keep it accessible for screen readers */
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
 }
 
-.post-preview .post-thumbnail img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
+/* Footer Styling */
+.site-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: var(--mcdev-color-bg-secondary); /* Dark background, matching header */
+    color: var(--mcdev-color-text-secondary); /* Lighter text color for readability against dark bg */
+    padding: 2em 0; /* Vertical padding for spacing */
+    text-align: center; /* Center content by default */
+
+    /* Terminal/Screen look elements */
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3); /* Subtle inner shadow for depth */
+    border-top: 2px solid var(--mcdev-color-bg-primary); /* A distinct line at the top, like a terminal border */
+}
+
+/* Adjust general link styling within the footer */
+.site-footer a {
+    color: var(--mcdev-color-link); /* Default link color in footer */
+    text-decoration: none; /* No underline by default */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.site-footer a:hover {
+    color: var(--mcdev-color-link-hover); /* Your theme's hover color */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Inner wrapper for consistent content width and layout */
+.site-footer .footer-inner-wrapper {
+    /* Assuming you have a variable for max-width, or use a fixed value */
+    max-width: var(--mcdev-container-max-width, 1140px); /* Adjust 1140px if your main content width is different */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 0 20px; /* Horizontal padding for smaller screens to prevent content touching edges */
+
+    display: flex; /* Use flexbox for the layout of site-info and menu */
+    flex-direction: column; /* Stack them vertically on smaller screens */
+    align-items: center; /* Center items horizontally when stacked */
+    justify-content: space-between; /* Pushes site-info and menu to ends on larger screens */
+    gap: 1.5em; /* Space between the site-info and menu blocks */
+}
+
+/* Site Info (Copyright and "Powered by" text) */
+.site-footer .site-info {
+    font-size: 0.9em; /* Slightly smaller font for copyright */
+}
+
+/* Footer Navigation Menu Styling */
+.site-footer .footer-navigation {
+    /* This is the <div> wrapper around the <ul> */
+    width: 100%; /* Allow it to take full width of its flex parent */
+}
+
+.site-footer .footer-menu-list { /* This targets the actual <ul> element */
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Arrange menu items horizontally */
+    flex-wrap: wrap; /* Allow menu items to wrap to the next line if screen is too small */
+    justify-content: center; /* Center menu items horizontally */
+    gap: 1.5em; /* Space between individual menu items */
+}
+
+.site-footer .footer-menu-list li {
+    margin: 0; /* Ensure no default list item margins */
+}
+
+.site-footer .footer-menu-list li a {
+    color: var(--mcdev-color-text-secondary); /* Menu item link color (lighter) */
+    font-weight: 500; /* Slightly bolder */
+    text-transform: uppercase; /* Match header/tag styling */
+    white-space: nowrap; /* Prevent menu items from breaking onto multiple lines */
+}
+
+.site-footer .footer-menu-list li a:hover {
+    color: var(--mcdev-color-link-hover); /* Your theme's hover color */
+    text-decoration: none; /* No underline on hover unless specifically desired */
 }

@@ -12,28 +12,31 @@
 
 ?></main></div></div>
 <footer id="colophon" class="site-footer">
-    <div class="site-info">
-<?php /* REMOVING 'Powered By' disclaimer.  ToDo: make this a theme option?
-        <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mcinnesdev-theme' ) ); ?>">
-            <?php
-            printf( esc_html__( 'Powered by %s', 'mcinnesdev-theme' ), 'WordPress' );
-            ?>
-        </a>
-        <span class="sep"> | </span>
-*/ ?>
-        <?php
-        /* translators: 1: Theme name, 2: Theme author. */
+  
+		<div class="footer-inner-wrapper"> <div class="site-info">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<?php bloginfo( 'name' ); ?> &copy;2025
+				</a>
+<!--				<span class="sep"> | </span>-->
+				<?php
+					/* translators: 1: Theme name, 2: WordPress. */
 		// ToDo: remove or link to GitHub repo?
-        printf( esc_html__( 'Theme: %1$s by %2$s.', 'mcinnesdev-theme' ), 'McInnes.Dev Theme', '<a href="https://mcInnes.dev/">Josh McInnes</a>' );
-        ?>
-    </div><?php
-    wp_nav_menu( array(
-        'theme_location' => 'footer',
-        'menu_id'        => 'footer-menu',
-        'depth'          => 1, // Only show top-level items for simplicity
-    ) );
-    ?>
-</footer><?php wp_footer(); ?>
+//					printf( esc_html__( 'Proudly powered by %1$s and %2$s.', 'mcinnesdev-theme' ), 'McInnesDev Theme', '<a href="https://wordpress.org/">WordPress</a>' );
+				?>
+			</div><?php
+			// Display the footer menu if it's assigned
+			wp_nav_menu( array(
+				'theme_location' => 'footer', // Assuming this theme location is registered
+        'menu_id' => 'footer-menu',
+				'container_class' => 'footer-navigation', // Wrapper for the menu
+				'menu_class' => 'footer-menu-list', // NEW: Specific class for the <ul> element
+				'depth' => 1, // Only show top-level menu items
+				'fallback_cb' => false, // Don't display a default page list if no menu is assigned
+			) );
+			?>
+		</div>
+</footer>
+<?php wp_footer(); ?>
 
 </body>
 </html>
